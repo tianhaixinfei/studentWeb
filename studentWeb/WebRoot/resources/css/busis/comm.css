@@ -1,0 +1,28 @@
+.add-icon { background-image: url(../../images/comm/page-add.gif) !important; }
+.page-query {background-image:url(../../images/comm/page-search.gif) !important;}
+.save-icon { background-image: url(../../images/comm/con_save.gif) !important; }
+.page-folder { background-image: url(../../images/comm/book.png) !important; }
+.upload-icon {background: url('../../images/comm/image_add.png') no-repeat 0 0 !important;}
+.export-icon { background-image: url(../../images/comm/con_export.gif) !important; }
+.import-icon { background-image: url(../../images/comm/con_import.gif) !important; }
+.delete-icon { background-image: url(../../images/comm/con_delete.png) !important; }
+.stop-icon { background-image: url(../../images/comm/con_stop.png) !important; }
+.detail-icon { background-image: url(../../images/comm/detail.png) !important; }
+.edit-icon { background-image: url(../../images/comm/edit.gif) !important; }
+.home-icon { background-image: url(../../images/comm/application_home.png) !important; }
+.scheme-signature { background-image: url(../../images/scheme/signature.gif) !important; }
+.scheme-cancel { background-image: url(../../images/scheme/cancel.gif) !important; }
+.scheme-back { background-image: url(../../images/scheme/back.png) !important; }
+.scheme-sub { background-image: url(../../images/scheme/yes.gif) !important; }
+.scheme-select { background-image: url(../../images/scheme/select.gif) !important; }
+.scheme-save { background-image: url(../../images/scheme/save.png) !important; }
+.basic-play { background-image: url(../../images/basic/play.png) !important; }
+.basic-stop { background-image: url(../../images/basic/stop.png) !important; }
+.basic-res { background-image: url(../../images/basic/menu_key.png) !important; }
+.basic_user_key { background-image: url(../../images/basic/user_key.png) !important; }
+.basic-petrel { background-image: url(../../images/human/grid/refresh.png) !important; }
+.refresh-icon { background-image: url(../../images/comm/page_refresh.png) !important; }
+.org-icon{background-image: url(../../images/comm/chart_organisation.png) !important; }
+.light-icon{background-image: url(../../images/comm/lightbulb.png) !important; }
+.arrowup-icon{background-image: url(../../images/comm/arrow_up.png) !important; }
+

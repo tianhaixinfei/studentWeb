@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.basic.UserDao">
+
+  <select id="login" parameterType="java.util.Map" resultType="com.domain.basic.User">
+		select u.id, u.ucode, u.uname,  u.upass,  u.deptid,  u.sex,  ur.roleid, ur.rolename, t.themename
+		from sysuser u
+		left join (select ur.userid, ur.roleid, r.rolename
+		              from user_role ur
+		              left join role r on ur.roleid = r.id) ur on ur.userid = u.id
+		left join sysuser t on u.id = t.id
+		where u.type = #{type} 
+		<if test="ucode != null"> and u.ucode = #{ucode}</if>
+		<if test="upass != null"> and u.upass = #{upass}</if>
+		 limit 1;
+  </select>
+  
+  <select id="valiUserCode" parameterType="java.util.Map" resultType="com.domain.basic.User">
+  		select id,ucode,uname from sysuser where ucode = #{ucode} and id != #{userid}
+  </select>
+  
+  <select id="queryUserListLimitCount" parameterType="com.domain.basic.User" resultType="int">
+		select count(1) from sysuser  u
+		where 1=1 
+		<if test="uname != null and !uname.toString().equalsIgnoreCase('')"> and u.uname like '%${uname}%'</if>
+		<if test="ucode != null and !ucode.toString().equalsIgnoreCase('')"> and u.ucode like '%${ucode}%'</if>
+		<if test="createDate != null and !createDate.toString().equalsIgnoreCase('')"> and createDate <![CDATA[ == ]]> '${createDate}'</if>
+		<if test="stunumber > 0"> and stunumber like '%${stunumber}%'</if>
+		<if test="age > 0"> and age == '${age}'</if>
+		<if test="sex != null and !sex.toString().equalsIgnoreCase('')"> and sex = '${sex}'</if>
+		<if test="parentDeptId != null and !parentDeptId.toString().equalsIgnoreCase('')"> and parentDeptId = '${parentDeptId}'</if>
+		<if test="deptId != null and !deptId.toString().equalsIgnoreCase('')"> and deptId = '${deptId}'</if>
+		<if test="subDeptId != null and !subDeptId.toString().equalsIgnoreCase('')"> and subDeptId = '${subDeptId}'</if>
+		<if test="tel > 0 "> and tel like '%${tel}%'</if>
+		<if test="mail != null and !mail.toString().equalsIgnoreCase('')"> and mail like '%${mail}%'</if>
+		<if test="qq > 0"> and qq like '%${qq}%'</if>
+		<if test="findbackPassInfo != null and !findbackPassInfo.toString().equalsIgnoreCase('')"> and findbackPassInfo == '${findbackPassInfo}'</if>
+		<if test="state != null and !state.toString().equalsIgnoreCase('')"> and state = '${state}'</if>
+		<if test="type != null and !type.toString().equalsIgnoreCase('')"> and type = '${type}'</if>
+	</select>
+	
+	<select id="queryUserListLimitData" parameterType="com.domain.basic.User" resultType="com.domain.basic.User">
+		select * from sysuser  u
+		where 1=1 
+		<if test="uname != null and !uname.toString().equalsIgnoreCase('')"> and u.uname like '%${uname}%'</if>
+		<if test="ucode != null and !ucode.toString().equalsIgnoreCase('')"> and u.ucode like '%${ucode}%'</if>
+		<if test="createDate != null and !createDate.toString().equalsIgnoreCase('')"> and createDate <![CDATA[ = ]]> '${createDate}'</if>
+		<if test="stunumber > 0"> and stunumber like '%${stunumber}%'</if>
+		<if test="age > 0"> and age == '${age}'</if>
+		<if test="sex != null and !sex.toString().equalsIgnoreCase('')"> and sex = '${sex}'</if>
+		<if test="parentDeptId != null and !parentDeptId.toString().equalsIgnoreCase('')"> and parentDeptId = '${parentDeptId}'</if>
+		<if test="deptId != null and !deptId.toString().equalsIgnoreCase('')"> and deptId = '${deptId}'</if>
+		<if test="subDeptId != null and !subDeptId.toString().equalsIgnoreCase('')"> and subDeptId = '${subDeptId}'</if>
+		<if test="tel > 0"> and tel like '%${tel}%'</if>
+		<if test="mail != null and !mail.toString().equalsIgnoreCase('')"> and mail like '%${mail}%'</if>
+		<if test="qq > 0"> and qq like '%${qq}%'</if>
+		<if test="findbackPassInfo != null and !findbackPassInfo.toString().equalsIgnoreCase('')"> and findbackPassInfo == '${findbackPassInfo}'</if>
+		<if test="state != null and !state.toString().equalsIgnoreCase('')"> and state = '${state}'</if>
+		<if test="type != null and !type.toString().equalsIgnoreCase('')"> and type = '${type}'</if>
+		order by orderno 
+	</select>
+  
+  <update id="updateUserByID" parameterType="com.domain.basic.User">
+  		update sysuser 
+		<set>
+			uname = '${uname}',
+			ucode = '${ucode}',
+			<if test="stunumber != null and !stunumber.toString().equalsIgnoreCase('')"> stunumber = '${stunumber}',</if>
+			<if test="age > 0 ">  age = '${age}',</if>
+			sex = '${sex}',
+			<if test="parentDeptId != null and !parentDeptId.toString().equalsIgnoreCase('')">  parentDeptId = '${parentDeptId}',</if>
+			<if test="deptId != null and !deptId.toString().equalsIgnoreCase('')">  deptId = '${deptId}',</if>
+			<if test="subDeptId != null and !subDeptId.toString().equalsIgnoreCase('')">  subDeptId == '${subDeptId}',</if>
+			<if test="tel > 0">  tel = '${tel}',</if>
+			<if test="mail != null and !mail.toString().equalsIgnoreCase('')">  mail = '${mail}',</if>
+			<if test="qq > 0">  qq = '${qq}',</if>
+			<if test="findbackPassInfo != null and !findbackPassInfo.toString().equalsIgnoreCase('')">  findbackPassInfo = '${findbackPassInfo}',</if>
+			<if test="type != null and !type.toString().equalsIgnoreCase('')">  type = '${type}',</if>
+			<if test="remark != null and !remark.toString().equalsIgnoreCase('')">  remark = '${remark}',</if>
+			<if test="themeName != null and !themeName.toString().equalsIgnoreCase('')">  themeName = '${themeName}',</if>
+			<if test="orderno > 0">  orderno = '${orderno}',</if>
+			<if test="state != null and !state.toString().equalsIgnoreCase('')">  state = '${state}'</if>
+		</set>
+		where id = #{id}
+  </update>
+  
+  <insert id="saveUser" parameterType="com.domain.basic.User">
+		insert sysuser(
+			id,uname,ucode,upass,createDate,sex,state,themeName,
+			<if test="age > 0">age,</if>
+			<if test="stunumber != null and !stunumber.toString().equalsIgnoreCase('')">stunumber,</if>
+			<if test="parentDeptId != null and !parentDeptId.toString().equalsIgnoreCase('')">parentDeptId,</if>
+			<if test="deptId != null and !deptId.toString().equalsIgnoreCase('')">deptId,</if>
+			<if test="subDeptId != null and !subDeptId.toString().equalsIgnoreCase('')">subDeptId,</if>
+			<if test="tel > 0">tel,</if>
+			<if test="mail != null and !mail.toString().equalsIgnoreCase('')">mail,</if>
+			<if test="qq > 0">qq,</if>
+			<if test="findbackPassInfo != null and !findbackPassInfo.toString().equalsIgnoreCase('')">findbackPassInfo,</if>
+			<if test="remark != null and !qq.toString().equalsIgnoreCase('')">remark,</if>
+			type
+			)
+		values (
+			#{id},#{uname},#{ucode},#{upass},#{createDate},#{sex},#{state},#{themeName},
+			<if test="age > 0">#{age},</if>
+			<if test="stunumber != null and !stunumber.toString().equalsIgnoreCase('')">#{stunumber},</if>
+			<if test="parentDeptId != null and !parentDeptId.toString().equalsIgnoreCase('')">#{parentDeptId},</if>
+			<if test="deptId != null and !deptId.toString().equalsIgnoreCase('')">#{deptId},</if>
+			<if test="subDeptId != null and !subDeptId.toString().equalsIgnoreCase('')">#{subDeptId},</if>
+			<if test="tel > 0">#{tel},</if>
+			<if test="mail != null and !mail.toString().equalsIgnoreCase('')">#{mail},</if>
+			<if test="qq > 0">#{qq},</if>
+			<if test="findbackPassInfo != null and !findbackPassInfo.toString().equalsIgnoreCase('')">#{findbackPassInfo},</if>
+			<if test="remark != null and !qq.toString().equalsIgnoreCase('')">#{remark},</if>
+			#{type}
+		)
+  </insert>
+  
+  <select id="getUserInfoByID" parameterType="com.domain.basic.User" resultType="com.domain.basic.User">
+  		select * from sysuser where id = '${id}'
+  </select>
+  
+  <delete id="deleteUserByID" >
+  		delete from sysuser where id = #{id}
+  </delete>
+  
+  <update id="updateUserState" parameterType="com.domain.basic.User">
+  		update sysuser 
+		<set>
+			state = '${state}',
+		</set>
+		where id = #{id}
+  </update>
+  
+   <update id="updateUserPassword" parameterType="com.domain.basic.User">
+  		update sysuser 
+		<set>
+			<if test="newpass != null and !newpass.toString().equalsIgnoreCase('')"> upass = #{newpass},</if>
+			<if test="newpass == null or newpass.toString().equalsIgnoreCase('')"> upass = '123456',</if>
+		</set>
+		where id = #{id}
+  </update>
+  
+  <update id="savaUserTheme" parameterType="com.domain.basic.User">
+  		update sysuser 
+		<set>
+			themeName = '${themeName}',
+		</set>
+		where id = #{id}
+  </update>
+  
+  <select id="findUpassByInfo" parameterType="com.domain.basic.User" resultType="com.domain.basic.User">
+		select * from sysuser  u
+		where 1=1                                                               
+		<if test="uname != null and !uname.toString().equalsIgnoreCase('')"> and u.uname = #{uname}</if>
+		<if test="stunumber > 0"> and u.stunumber = #{stunumber}</if>
+		<if test="mail != null and !mail.toString().equalsIgnoreCase('')"> and u.mail = #{mail}</if>
+		<if test="qq > 0"> and u.qq = #{qq}</if>
+  </select>
+	
+</mapper>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.basic.DeptDao">
+	
+	<insert id="insertDept" parameterType="com.domain.basic.Dept">
+		insert deptlevel(
+			deptid,parentid,deptname,deptleve,orderno,start_stop)
+		values (
+			#{deptid},#{parentid},#{deptname},#{deptleve},#{orderno},#{start_stop}
+		)
+   </insert>
+   
+   <delete id="deleteDeptById" parameterType="java.lang.String">
+  		delete from deptlevel where deptid = #{deptid}
+   </delete>
+   
+    <update id="updateDept" parameterType="com.domain.basic.Dept">
+  		update deptlevel 
+		<set>
+			<if test="parentid !=null">parentid = #{parentid},</if>
+			<if test="deptname !=null">deptname = #{deptname},</if>
+			<if test="deptleve !=null">deptleve = #{deptleve},</if>
+			<if test="start_stop !=null">start_stop = #{start_stop},</if>
+			<if test="orderno !=null">orderno = #{orderno},</if>
+		</set>
+		where deptid = #{deptid}
+  </update>
+  
+   <select id="queryDeptList"  parameterType="com.domain.basic.Dept" resultType="com.domain.basic.Dept">
+  		select d.deptid,d.parentid,d.deptname,d.deptleve,d.orderno,d.start_stop,
+		 	   (d.deptid in (select parentid from deptlevel)) as leaf
+  		from deptlevel  d
+  		<if test="deptid !=null and !deptid.toString().equalsIgnoreCase('')">where deptid = #{deptid}</if>
+  		<if test="deptleve !=null and !deptleve.toString().equalsIgnoreCase('')">where deptleve = #{deptleve}</if>
+  		<if test="parentid !=null and !parentid.toString().equalsIgnoreCase('')">where parentid = #{parentid}</if>
+  		<if test="deptname !=null and !deptname.toString().equalsIgnoreCase('')">where deptname like '%${deptname}%'</if>
+  		<if test="start_stop !=null and !start_stop.toString().equalsIgnoreCase('')">where start_stop = #{start_stop}</if>
+  		order by orderno 
+  </select>
+</mapper>

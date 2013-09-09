@@ -1,0 +1,99 @@
+.x-tree-node  .book-icon{background-image: url(../../images/comm/book.png)  !important; }   
+.x-tree-node-expanded  .book-icon{background-image: url(../../images/comm/book_open.png)  !important; }    
+.x-tree-node-collapsed  .book-icon{background-image: url(../../images/comm/book.png)  !important; }    
+.x-tree-node-leaf  .book-icon{background-image: url(../../images/comm/book.png)  !important; }
+
+.org-icon{background-image: url(../../images/comm/chart_organisation.png) !important; }
+.info-icon { background-image: url(../../images/comm/step/information.png) !important; }
+
+.x-tree-node  .step01-icon{background-image: url(../../images/comm/step/award_star_silver_3.png) !important; }
+.x-tree-node  .step02-icon{background-image: url(../../images/comm/step/award_star_silver_2.png) !important; }
+.x-tree-node  .step03-icon{background-image: url(../../images/comm/step/award_star_silver_1.png) !important; }
+.x-tree-node  .step04-icon{background-image: url(../../images/comm/step/award_star_gold_3.png) !important; }
+.x-tree-node  .step05-icon{background-image: url(../../images/comm/step/award_star_gold_2.png) !important; }
+.x-tree-node  .step06-icon{background-image: url(../../images/comm/step/award_star_gold_1.png) !important; }
+.x-tree-node  .step07-icon{background-image: url(../../images/comm/step/award_star_bronze_3.png) !important; }
+.x-tree-node  .step08-icon{background-image: url(../../images/comm/step/award_star_bronze_2.png) !important; }
+.x-tree-node  .step09-icon{background-image: url(../../images/comm/step/award_star_bronze_1.png) !important; }
+.x-tree-node  .nodes-icon{background-image: url(../../images/comm/step/leaf.gif) !important; }
+.step-add-icon{background-image: url(../../images/comm/step/award_star_add.png) !important; }
+
+.edit-icon{background-image: url(../../images/comm/step/application_form_edit.png) !important; }
+#details-panel .x-panel-body {
+    padding: 10px;
+    background: #eee;
+    color: #555;
+}
+#details-panel a:link, #details-panel a:visited {
+    color: #369;
+}
+#details-panel h2 {
+    color: #369;
+    font-size: 15px;
+}
+#details-panel p {
+    margin-bottom: 5px;
+}
+
+/*
+	These are examples of styles for the button icons
+*/
+.x-edit-wordpaste {background: url(../../images/comm/page_word.png) 0 0 no-repeat !important;}
+.x-edit-table {background: url(../../images/comm/step/table.png) 0 0 no-repeat !important;}
+.x-edit-hr {background: url(../../images/comm/step/edit-rule.png) 0 0 no-repeat !important;}
+.x-edit-indent {background: url(../../images/comm/step/text_indent.png) 0 0 no-repeat !important;}
+.x-edit-char {background: url(../../images/comm/step/page_word.png) 0 0 no-repeat !important;}
+.x-edit-outdent {background: url(../../images/comm/step/text_indent_remove.png) 0 0 no-repeat !important;}
+.x-edit-subscript {background: url(../../images/comm/step/text_subscript.png) 0 0 no-repeat !important;}
+.x-edit-superscript {background: url(../../images/comm/step/text_superscript.png) 0 0 no-repeat !important;}
+.x-edit-removeFormat {background: url(../../images/comm/con_delete.png) 0 0 no-repeat !important;}
+.x-edit-image {background: url(../../images/comm/step/picture.png) 0 0 no-repeat !important;}
+
+/*
+	These styles are used for the character map
+*/
+.char-item {
+	float: left; 
+	border: 1px solid #99BBE8; 
+	margin: 3px; 
+	text-align: center; 
+	vertical-align: middle; 
+	width: 20px; 
+	height: 20px; 
+	font-size: 14px;
+	color: #15428B;
+	cursor: pointer;
+}
+
+.char-item.x-view-selected {
+	background-color: #777;
+}
+
+.char-over {
+	border: 1px solid #15428B;
+	background-color:#d0def0;
+}
+.x-form-file-wrap {
+    position: relative;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file {
+	position: absolute;
+	right: 0;
+	-moz-opacity: 0;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	z-index: 2;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file-btn {
+	position: absolute;
+	right: 0;
+	z-index: 1;
+}
+.x-form-file-wrap .x-form-file-text {
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    color: #777;
+}

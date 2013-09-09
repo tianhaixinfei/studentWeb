@@ -1,0 +1,346 @@
+[{
+	        text: '双河油田江河区Ⅴ上',
+	        expanded:true,
+	        iconCls:'book-icon',
+	        leaf: false,
+       		children: [{
+       			text:'新区建设阶段 (1978-1983年)',
+       			id:'step1',
+       			leaf: false,
+       			expanded:true,
+       			iconCls:'step01-icon',
+       			listeners:{
+		        	"click":{
+		        		fn:function(v){
+		        			getDocViewer().gotoPage(3)
+		        		}
+		        	}
+		        },
+		        children: [{
+			        text: '1、方案要点',
+			        id:'node1',
+			        expanded:true,
+			        iconCls:'nodes-icon',
+			        leaf: false,
+			        listeners:{
+			        	"click":{
+			        		fn:function(v){
+			        			getDocViewer().gotoPage(3)
+			        		}
+			        	}
+			        },
+			        children:[{
+			        	text:'1.1方案编制背景',
+			        	iconCls:'nodes-icon',
+			        	listeners:{
+				        	"click":{
+				        		fn:function(v){
+				        			getDocViewer().gotoPage(3)
+				        		}
+				        	}
+				        },
+			        	leaf: true
+			        },{
+			        	text:'1.2主要涉及内容',
+			        	iconCls:'nodes-icon',
+			        	listeners:{
+				        	"click":{
+				        		fn:function(v){
+				        			getDocViewer().gotoPage(3)
+				        		}
+				        	}
+				        },
+			        	leaf: true
+			        }]
+			    },{
+			        text: '2、执行情况',
+			        iconCls:'nodes-icon',
+			        listeners:{
+			        	"click":{
+			        		fn:function(v){
+			        			getDocViewer().gotoPage(3)
+			        		}
+			        	}
+			        },
+			        expanded:true,
+			        leaf: false,
+			        children:[{
+			        	text:'2.1工作量及指标',
+			        	listeners:{
+				        	"click":{
+				        		fn:function(v){
+				        			getDocViewer().gotoPage(3)
+				        		}
+				        	}
+				        },
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.2储量',
+			        	listeners:{
+				        	"click":{
+				        		fn:function(v){
+				        			getDocViewer().gotoPage(3)
+				        		}
+				        	}
+				        },
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.3开发方式及井网',
+			        	listeners:{
+				        	"click":{
+				        		fn:function(v){
+				        			getDocViewer().gotoPage(3)
+				        		}
+				        	}
+				        },
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.4产能',
+			        	listeners:{
+				        	"click":{
+				        		fn:function(v){
+				        			getDocViewer().gotoPage(3)
+				        		}
+				        	}
+				        },
+			        	leaf: false,
+			        	expanded:true,
+			        	iconCls:'nodes-icon',
+			        	children:[{
+			        		text:'典型井分析',
+			        		listeners:{
+					        	"click":{
+					        		fn:function(v){
+					        			getDocViewer().gotoPage(3)
+					        		}
+					        	}
+					        },
+			        		iconCls:'nodes-icon',
+			        		leaf:true
+			        	}]
+			        },{
+			        	text:'2.4模型',
+			        	listeners:{
+				        	"click":{
+				        		fn:function(v){
+				        			getDocViewer().gotoPage(3)
+				        		}
+				        	}
+				        },
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        }]
+			   },{
+			        text: '3、综合评述',
+			        iconCls:'nodes-icon',
+			        listeners:{
+			        	"click":{
+			        		fn:function(v){
+			        			getDocViewer().gotoPage(3)
+			        		}
+			        	}
+			        },
+			        leaf: true
+			   }]
+       		},{
+		        text: '细分层系调整阶段 (1984-1987年)',
+		        iconCls:'step02-icon',
+		        leaf: false,
+		        listeners:{
+		        	"click":{
+		        		fn:function(v){
+		        			getDocViewer().gotoPage(3)
+		        		}
+		        	}
+		        },
+		        children: [{
+			        text: '1、方案要点',
+			        expanded:true,
+			        iconCls:'nodes-icon',
+			        leaf: false,
+			        children:[{
+			        	text:'1.1方案编制背景',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'1.2主要涉及内容',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        }]
+			    },{
+			        text: '2、执行情况',
+			        iconCls:'nodes-icon',
+			        expanded:true,
+			        leaf: false,
+			        children:[{
+			        	text:'2.1工作量及指标',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.2储量',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.3开发方式及井网',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.4产能',
+			        	leaf: false,
+			        	expanded:true,
+			        	iconCls:'nodes-icon',
+			        	children:[{
+			        		text:'典型井分析',
+			        		iconCls:'nodes-icon',
+			        		leaf:true
+			        	}]
+			        },{
+			        	text:'2.4模型',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        }]
+			   },{
+			        text: '3、综合评述',
+			        iconCls:'nodes-icon',
+			        leaf: true
+			   }]
+		    },{
+		        text: '井网一、二次加密调整阶段 (1988-1995年)',
+		        iconCls:'step03-icon',
+		        listeners:{
+		        	"click":{
+		        		fn:function(v){
+		        			getDocViewer().gotoPage(3)
+		        		}
+		        	}
+		        },
+		        leaf: false,
+		        children: [{
+			        text: '1、方案要点',
+			        expanded:true,
+			        iconCls:'nodes-icon',
+			        leaf: false,
+			        children:[{
+			        	text:'1.1方案编制背景',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'1.2主要涉及内容',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        }]
+			    },{
+			        text: '2、执行情况',
+			        iconCls:'nodes-icon',
+			        expanded:true,
+			        leaf: false,
+			        children:[{
+			        	text:'2.1工作量及指标',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.2储量',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.3开发方式及井网',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.4产能',
+			        	leaf: false,
+			        	expanded:true,
+			        	iconCls:'nodes-icon',
+			        	children:[{
+			        		text:'典型井分析',
+			        		iconCls:'nodes-icon',
+			        		leaf:true
+			        	}]
+			        },{
+			        	text:'2.4模型',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        }]
+			   },{
+			        text: '3、综合评述',
+			        iconCls:'nodes-icon',
+			        leaf: true
+			   }]
+		   }, {
+		        text: '特高含水井网完善调整阶段 (1996-2002年)',
+		        iconCls:'step04-icon',
+		        listeners:{
+		        	"click":{
+		        		fn:function(v){
+		        			getDocViewer().gotoPage(3)
+		        		}
+		        	}
+		        },
+		        leaf: false,
+		        children: [{
+			        text: '1、方案要点',
+			        expanded:true,
+			        iconCls:'nodes-icon',
+			        leaf: false,
+			        children:[{
+			        	text:'1.1方案编制背景',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'1.2主要涉及内容',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        }]
+			    },{
+			        text: '2、执行情况',
+			        iconCls:'nodes-icon',
+			        expanded:true,
+			        leaf: false,
+			        children:[{
+			        	text:'2.1工作量及指标',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.2储量',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.3开发方式及井网',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        },{
+			        	text:'2.4产能',
+			        	leaf: false,
+			        	expanded:true,
+			        	iconCls:'nodes-icon',
+			        	children:[{
+			        		text:'典型井分析',
+			        		iconCls:'nodes-icon',
+			        		leaf:true
+			        	}]
+			        },{
+			        	text:'2.4模型',
+			        	iconCls:'nodes-icon',
+			        	leaf: true
+			        }]
+			   },{
+			        text: '3、综合评述',
+			        iconCls:'nodes-icon',
+			        leaf: true
+			   }]
+		    }, {
+		        text: '聚合物驱开发阶段 (2003-2010年)',
+		        listeners:{
+		        	"click":{
+		        		fn:function(v){
+		        			getDocViewer().gotoPage(3)
+		        		}
+		        	}
+		        },
+		        iconCls:'step05-icon',
+		        leaf: true
+		    }]
+	   }]

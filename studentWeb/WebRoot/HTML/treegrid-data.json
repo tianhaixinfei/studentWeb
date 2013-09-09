@@ -1,0 +1,86 @@
+[{
+    name:'Project: Shopping',
+    duration:'中古',
+    user:'Tommy Maintz',
+    iconCls:'task-folder',
+    expanded: true,
+    width:200,
+    children:[
+	   {
+	        name:'Housewares',
+	        duration:1.25,
+	        user:'Tommy Maintz',
+	        width:200,
+	        iconCls:'task-folder',
+	        children:[
+		        {
+		            name:'Kitchen supplies',
+		            duration:0.25,
+		            width:200,
+		            user:'Tommy Maintz',
+		            leaf:true,
+		            iconCls:'task'
+		        }
+	        ]
+	    }, {
+	        name:'Remodeling',
+	        duration:12,
+	        user:'Tommy Maintz',
+	        width:200,
+	        iconCls:'task-folder',
+	        expanded: true,
+	        children:[{
+	            name:'Retile kitchen',
+	            duration:6.5,
+	            width:200,
+	            user:'Tommy Maintz',
+	            leaf:true,
+	            iconCls:'task'
+	        },{
+	            name:'Paint bedroom',
+	            duration: 2.75,
+	            user:'Tommy Maintz',
+	            iconCls:'task-folder',
+	            children: [{
+	                task: 'Ceiling',
+	                duration: 1.25,
+	                user: 'Tommy Maintz',
+	                iconCls: 'task',
+	                leaf: true
+	            }, {
+	                name: 'Walls',
+	                duration: 1.5,
+	                user: 'Tommy Maintz',
+	                iconCls: 'task',
+	                leaf: true
+	            }]
+	        },{
+	            name:'Decorate living room',
+	            duration:2.75,
+	            user:'Tommy Maintz',
+	            leaf:true,
+	            iconCls:'task'
+	        }]
+	    }
+	  ]
+	},{
+	    name:'Project: Testing',
+	    duration:2,
+	    user:'Core Team',
+	    iconCls:'task-folder',
+	    children:[{
+	        name: 'Mac OSX',
+	        duration: 0.75,
+	        user: 'Tommy Maintz',
+	        iconCls: 'task-folder',
+	        children: [
+		        {
+		            name: 'FireFox',
+		            duration: 0.25,
+		            user: 'Tommy Maintz',
+		            iconCls: 'task',
+		            leaf: true
+		        }
+	        ]
+	    }]
+}]

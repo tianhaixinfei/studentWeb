@@ -1,0 +1,51 @@
+[{
+    text: '资源页一', 
+    id:'1',
+    cls: 'folder',
+    children: [{
+        text: '广告块1.1',
+        id:'1.1',
+        leaf: true,
+        checked: false
+    },{
+        text: '广告块1.2',
+        id:'1.2',
+        leaf: true,
+        checked: false
+    },{
+        text: '广告块1.3',
+        id:'1.3',
+        leaf: true,
+        checked: false
+    }]
+},{
+    text: '资源页二',
+    cls: 'folder',
+    children: [{
+        text: '广告块2.1',
+        id:'2.1',
+        leaf: true,
+        checked: false
+    },{
+        text: '广告块2.2',
+        id:'2.1',
+        leaf: true,
+        checked: false
+    },{
+        text: '广告块2.3',
+        leaf: true,
+        checked: false
+    }]
+},{
+    text: '资源页三', 
+    cls: 'folder',
+    children: [{
+        text: '广告块3.1',
+       	leaf: true,
+        checked: false
+    },{
+        text: '广告块3.2',
+       	leaf: true,
+        checked: false
+    }]
+}]

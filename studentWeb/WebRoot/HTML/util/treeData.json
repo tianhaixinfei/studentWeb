@@ -1,0 +1,134 @@
+[{
+    text: '资源页一', 
+    id:'1',
+    cls: 'folder',
+    children: [{
+        text: '广告块1.1',
+        id:'11',
+        cls: 'folder',
+        children: [{
+            text: '广告位1.1.1',
+            id:'111',
+            leaf: true,
+            checked: false
+        },{
+            text: '广告位1.1.2',
+            id:'112',
+            leaf: true,
+            checked: false
+        }]
+    },{
+        text: '广告块1.2',
+        id:'12',
+        cls: 'folder',
+        children: [
+        {
+            text: '广告位1.2.1',
+            id:'121',
+            leaf: true,
+            checked: false
+        },{
+            text: '广告位1.2.2',
+            id:'122',
+            leaf: true,
+            checked: false
+        },{
+            text: '广告位1.2.3',
+            id:'123',
+            leaf: true,
+            checked: false
+        },{
+            text: '广告位1.2.4',
+            id:'124',
+            leaf: true,
+            checked: false
+        }]
+    },{
+        text: '广告块1.3',
+        id:'13',
+        cls: 'folder',
+        children: [{
+            text: '广告位1.3.1',
+            id:'131',
+            leaf: true,
+            checked: false
+        },{
+            text: '广告位1.3.2',
+            id:'132',
+            leaf: true,
+            checked: false
+        }]
+    }]
+},{
+    text: '资源页二',
+    cls: 'folder',
+    children: [{
+        text: '广告块2.1',
+        id:'2.1',
+        cls: 'folder',
+        children: [{
+            text: '广告位2.1.1',
+            id:'211',
+            leaf: true,
+            checked: false
+        },{
+            text: '广告位2.1.2',
+            id:'212',
+            leaf: true,
+            checked: false
+        }]
+    },{
+        text: '广告块2.2',
+        cls: 'folder',
+        children: [{
+            text: '广告位2.2.1',
+            leaf: true,
+            id:'221',
+            checked: false
+        },{
+            text: '广告位2.2.2',
+            leaf: true,
+            id:'222',
+            checked: false
+        }]
+    },{
+        text: '广告块2.3',
+        cls: 'folder',
+        id:'23',
+        children: [{
+            text: '广告位2.3.1',
+            leaf: true,
+            id:'231',
+            checked: false
+        },{
+            text: '广告位2.3.2',
+            leaf: true,
+            id:'232',
+            checked: false
+        }]
+    }]
+},{
+    text: '资源页三', 
+    cls: 'folder',
+    children: [{
+        text: '广告块3.1',
+        id:'31',
+        cls: 'folder',
+        children: [{
+            text: '广告位3.1.1',
+            leaf: true,
+            id:'311',
+            checked: false
+        }]
+    },{
+        text: '广告块3.2',
+        cls: 'folder',
+        id:'32',
+        children: [{
+            text: '广告位3.2.1',
+            leaf: true,
+            id:'321',
+            checked: false
+        }]
+    }]
+}]

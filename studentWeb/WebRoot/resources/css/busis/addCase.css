@@ -1,0 +1,33 @@
+.busi-workspace-ProgressBar {
+    position: relative;
+    border: 3px double #99BBE8;
+    width:100px;
+    padding: 1px;
+}
+.busi-workspace-ProgressBar div {
+    display: block;
+    position: relative;
+    background: #8DB2E3;
+    color: #333333;
+    height: 15px; /* 楂樺害 */
+    line-height: 15px;  /* 蹇呴』鍜岄珮搴︿竴鑷达紝鏂囨湰鎵嶈兘鍨傜洿灞呬腑 */
+}
+.busi-workspace-ProgressBar div span { 
+    position: absolute;
+    text-align: center;
+    width:100px;
+    font-weight: bold;
+}
+
+.mainTitle{ 
+	align:center;
+	font-size:30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.busi-project-left { background-image: url(../../images/busis/left.png) !important; }
+.busi-project-bookOpen { background-image: url(../../images/comm/book_open.png); }/*方案操作*/
+.busi-project-searchMove { background-image: url(../../images/comm/detail.png) !important; }/*查看流转*/
+.busi-project-signin { background-image: url(../../images/scheme/signin.gif)}/*签收*/
+.busi-project-lefthover { background-image: url(../../images/busis/left_hove.png) !important; }

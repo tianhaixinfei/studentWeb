@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.basic.BasicDao">
+
+  <select id="queryModuleList" parameterType="java.util.Map" resultType="com.domain.basic.Basic">
+		select r.id,menuname,c_iconcls,state,orderno,c_url
+		from resources r
+		where r.id in
+		       (select resourceId
+		          from role_res
+		         where roleId in (
+		            select roleId from user_role where userId = #{userId}
+				 )
+			   )
+		   and r.parantid = #{parantId} and r.state = '启用'
+		 order by orderno
+  </select>
+  
+  
+   <select id="queryUserTheme" parameterType="java.lang.String" resultType="java.lang.String">
+  		select themeName from sysuser where id = #{userid}
+   </select>
+  
+  <select id="queryResourcesList"  resultType="com.domain.basic.Basic">
+  		select *  from resources r 
+		where r.parantid ='0' 
+		order by r.orderno
+  </select>
+  
+   <select id="queryResourcesListByID"  parameterType="java.lang.String"  resultType="com.domain.basic.Basic">
+  		select r.menuname,r.parantid,r.c_iconcls,r.c_url,r.id,r.orderno,r.state
+		from resources r 
+		where r.parantid = #{id} order by r.orderno 
+  </select>
+  
+   <select id="queryResourcesListByRoleId" parameterType="com.domain.basic.Basic" resultType="com.domain.basic.Basic">
+  		select r.id,r.parantid,r.menuname,r.c_iconcls,r.state,r.orderno,r.c_url, 
+			  if((rr.id !='null'),true,false) as checkState 
+		from resources r 
+		left join role_res rr on r.id = rr.resourceid   and rr.roleid = #{roleid}
+		where r.state = '启用' and r.parantid = #{parantid} 
+		order by orderno ; 
+
+  </select>
+  
+  <select id="validateUPass" parameterType="java.util.Map" resultType="java.lang.String">
+  		select uname  from sysuser   where id= #{id} and upass = #{upass}
+  </select>
+  
+  <insert id="saveResource" parameterType="com.domain.basic.Basic">
+		insert resources(
+			id,MENUNAME,PARANTID,C_ICONCLS,C_URL,ORDERNO,STATE,REMARK)
+		values (
+			#{id},#{menuname},#{parantid},#{c_iconcls},#{c_url},#{orderno},#{state},#{remark}
+		)
+  </insert>
+
+  <select id="geResourcesInfoByID"  parameterType="java.lang.String" resultType="com.domain.basic.Basic">
+  		select * from resources where id=#{id}
+  </select>
+  
+  <update id="updateResourceByID" parameterType="com.domain.basic.Basic">
+  		update resources 
+		<set>
+			<if test="menuname !=null">menuname = #{menuname},</if>
+			<if test="c_iconcls !=null ">c_iconcls = #{c_iconcls},</if>
+			<if test="state !=null">state = #{state},</if>
+			<if test="orderno">orderno = #{orderno},</if>
+			<if test="c_url !=null ">c_url = #{c_url},</if>
+			<if test="remark">remark = #{remark}</if>
+		</set>
+		where id = #{id}
+  </update>
+  
+  <delete id="deleteResourcesByID">
+  		delete from resources where id = #{id}
+  </delete>
+  
+   <select id="queryRoleList"  parameterType="com.domain.basic.Basic" resultType="com.domain.basic.Basic">
+  		select * from role  
+  		<if test="id !=null and !id.toString().equalsIgnoreCase('')">where id = #{id}</if>
+  		order by orderno 
+  </select>
+  
+   <select id="querySelectRoleListByUserId"  parameterType="java.lang.String" resultType="com.domain.basic.Basic">
+  		select ur.roleid, r.rolename
+		from user_role ur
+		left join sysuser s on s.id = ur.userid
+		left join role r on r.id = ur.roleid
+		where s.id = #{userid}
+  </select>
+  
+   <insert id="insertRole" parameterType="com.domain.basic.Basic">
+		insert role(
+			id,rolename,orderno,REMARK)
+		values (
+			#{id},#{rolename},#{orderno},#{remark}
+		)
+  </insert>
+  
+  <update id="updateRole" parameterType="com.domain.basic.Basic">
+  		update role 
+		<set>
+			<if test="rolename !=null">rolename = #{rolename},</if>
+			<if test="orderno !=null">orderno = #{orderno},</if>
+			<if test="remark !=null">remark = #{remark},</if>
+		</set>
+		where id = #{id}
+  </update>
+  
+   <insert id="insertRole_Res" parameterType="com.domain.basic.Basic">
+		insert role_res(
+			id,roleid,resourceid)
+		values (
+			#{id},#{roleid},#{resourceid}
+		)
+  </insert>
+  
+   <delete id="deleteRole_ResById" parameterType="java.lang.String">
+  		delete from role_res where roleid = #{roleid}
+  </delete>
+  
+   <delete id="deleteUser_roleByUserId" parameterType="java.lang.String">
+  		delete from user_role where userid = #{userid}
+   </delete>
+  
+   <insert id="insertUser_Role" parameterType="java.util.Map">
+		insert user_role(
+			id,userid,roleid)
+		values (
+			#{id},#{userid},#{roleid}
+		)
+  </insert>
+  
+  <delete id="deleteRoles" parameterType="java.lang.String">
+  		delete from role where id = #{id}
+  </delete>
+  
+   <delete id="deleteUser_roleByRoleId" parameterType="java.lang.String">
+  		delete from user_role where roleid = #{roleid}
+   </delete>
+   
+   <!--课程管理模块-->
+   
+   <insert id="insertCourse" parameterType="com.domain.basic.Basic">
+		insert course(
+			courseid,coursename,orderno,remark)
+		values (
+			#{courseid},#{coursename},#{orderno},#{remark}
+		)
+   </insert>
+   
+   <delete id="deleteCourseById" parameterType="java.lang.String">
+  		delete from course where courseid = #{courseid}
+   </delete>
+   
+    <update id="updateCourse" parameterType="com.domain.basic.Basic">
+  		update course 
+		<set>
+			<if test="coursename !=null">coursename = #{coursename},</if>
+			<if test="orderno !=null">orderno = #{orderno},</if>
+			<if test="remark !=null">remark = #{remark},</if>
+		</set>
+		where courseid = #{courseid}
+  </update>
+  
+   <select id="queryCourseList"  parameterType="com.domain.basic.Basic" resultType="com.domain.basic.Basic">
+  		select * from course  
+  		<if test="courseid !=null and !courseid.toString().equalsIgnoreCase('')">where courseid = #{courseid}</if>
+  		order by orderno 
+  </select>
+  
+</mapper>

@@ -1,0 +1,112 @@
+@CHARSET "UTF-8";
+.status_awayIcon  {background-image:url(../image/ext/status_away.png) !important;}
+.login_user  {background:url(../images/login/user.png) no-repeat 2px 2px;}
+.login_key  {background:url(../images/login/blogin.png) no-repeat 2px 2px;}	
+
+.login_user,.login_key {
+	background-color: #FFFFFF;
+	padding-left: 20px;
+	font-size: 12px;
+}
+/* 解决IE下PNG图片透明Bug */
+.IEPNG {
+	behavior: url(./resources/htc/iepngfix.htc);
+}
+/* 左侧树图片 */
+.x-tree-node-leaf .bug{
+	background-image:url(../images/ext/bug.png);
+}
+
+.fontsize {
+	font-size:14px;
+	font-style:normal;
+	color: #000000
+}
+
+.bug{
+	background-image:url(../images/ext/bug.png);
+}
+.x-tree-node-leaf .cmp{
+	background-image:url(../images/ext/cmp.gif);
+}
+.cmp{
+	background-image:url(../images/ext/cmp.gif);
+}
+.x-tree-node-leaf .book_previous{
+	background-image:url(../images/ext/book_previous.png);
+}
+.book_previous{
+	background-image:url(../images/ext/book_previous.png);
+}
+.x-tree-node-leaf .app_boxes{
+	background-image:url(../images/ext/app_boxes.png);
+}
+.app_boxes{
+	background-image:url(../images/ext/app_boxes.png);
+}
+.x-tree-node-icon .app_boxes{
+	background-image:url(../images/ext/app_boxes.png);
+}
+.x-tree-node-leaf .app_left{
+	background-image:url(../images/ext/app_left.png);
+}
+.app_left{
+	background-image:url(../images/ext/app_left.png);
+}
+.x-tree-node-leaf .app_right{
+	background-image:url(../images/ext/app_right.png);
+}
+.app_right{
+	background-image:url(../images/ext/app_right.png);
+}
+.x-tree-node-leaf .application_home{
+	background-image:url(../images/ext/application_home.png);
+}
+.application_home{
+	background-image:url(../images/ext/application_home.png);
+}
+.x-tree-node-leaf .award_star_silver_3{
+	background-image:url(../images/ext/award_star_silver_3.png);
+}
+.award_star_silver_3{
+	background-image:url(../images/ext/award_star_silver_3.png);
+}
+.x-tree-node-leaf .chart_organisation{
+	background-image:url(../images/ext/chart_organisation.png);
+}
+.chart_organisation{
+	background-image:url(../images/ext/chart_organisation.png);
+}
+.x-tree-node-leaf .building{
+	background-image:url(../images/ext/building.png);
+}
+.building{
+	background-image:url(../images/ext/building.png);
+}
+.detail-icon{
+	background-image:url(../images/default/tree/leaf.gif);
+}
+.acceptIcon_sub { background-image:url(../images/ext/accept.png) !important;}
+.add { background-image:url(../images/ext/add.png) !important;}
+.add_url { background-image:url(../images/ext/chart_organisation_add.png) !important;}
+.search_icon { background-image:url(../images/ext/zoom.png) !important;}
+.update_icon { background-image:url(../images/ext/pencil.png) !important;}
+.delete-icon { background-image:url(../images/ext/delete.png) !important;}
+.start_icon { background-image:url(../images/ext/check.png) !important;}
+.stop_icon { background-image:url(../images/ext/exclamation.png) !important;}
+.roleset_icon { background-image:url(../images/ext/group_add.png) !important;}
+
+.tbar_syn {background-image:url(../images/ext/tbar_synchronize.png) !important;}	
+.status_awayIcon {background-image:url(../images/ext/status_away.png) !important; }
+.imageIcon {background-image:url(../images/ext/image.png) !important; }
+.themeIcon {background-image:url(../images/main/theme.png) !important;}
+.config2Icon {background-image:url(../images/main/config2.png) !important;}
+.cancel_48Icon {background-image:url(../images/main/cancel_48.png) !important;}
+.keyIcon {background-image:url(../images/main/key.png) !important;}
+.lockIcon { background-image:url(../images/main/lock.png) !important; }
+.tbar_synchronizeIcon {background-image:url(../images/main/tbar_synchronize.png) !important;}
+.applicationIcon {background-image:url(../images/main/application.png) !important;}
+.application_cascadeIcon {background-image:url(../images/main/application_cascade.png) !important;}
+.application_doubleIcon {background-image:url(../images/main/application_double.png) !important;}
+.folder_wrenchIcon {background-image:url(../images/main/folder_wrench.png) !important;}
+.book_previous {background-image:url(../images/main/book_previous.png) !important;}
