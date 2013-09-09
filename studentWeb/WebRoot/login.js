@@ -473,13 +473,12 @@ Ext.onReady(function() {
     //找回密码面板
     var findUpassPanel = new Ext.form.FormPanel({
 		width:240,
-    	height:100,
+    	height:80,
     	bodyStyle : 'padding:5 0 0 10',
 		labelWidth : 60,
 		frame: true,
     	items:[
     	    {xtype:'textfield',name:'uname',height:25,fieldLabel:'注册姓名',allowBlank:false,blankText:'用户名称不能为空',anchor:'90%'},
-			{xtype:'numberfield',name:'stunumber',height:25,fieldLabel:'注册学号',allowBlank:false,blankText:'学生学号不能为空',anchor:'90%'},
 			{xtype:'numberfield',name:'age',height:25,fieldLabel:'注册QQ',allowBlank:false,blankText:'注册QQ不能为空',anchor:'90%'},
 			{xtype:'textfield',name:'mail',height:26,fieldLabel:'注册邮箱',vtype:'email',allowBlank:false,blankText:'邮箱地址不能为空',anchor:'90%'}
 		]
@@ -500,6 +499,7 @@ Ext.onReady(function() {
 			 {
     			text:'找回',scope:this,
 				handler:function(){
+					var th = this;
 					if (!findUpassPanel.form.isValid()) 
 						return;
 					findUpassPanel.form.submit({
@@ -509,7 +509,7 @@ Ext.onReady(function() {
 						waitMsg : '正在处理数据,请稍候...',
 						success : function(form, action) {
 							Ext.MessageBox.alert('提示', '找回密码成功，密码已经发回你注册邮箱', function() {
-								userWindow.hide();
+								th.userWindow.hide();
 							});
 						},
 						failure : function(form, action) {

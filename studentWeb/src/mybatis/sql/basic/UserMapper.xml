@@ -154,7 +154,6 @@
 		select * from sysuser  u
 		where 1=1                                                               
 		<if test="uname != null and !uname.toString().equalsIgnoreCase('')"> and u.uname = #{uname}</if>
-		<if test="stunumber > 0"> and u.stunumber = #{stunumber}</if>
 		<if test="mail != null and !mail.toString().equalsIgnoreCase('')"> and u.mail = #{mail}</if>
 		<if test="qq > 0"> and u.qq = #{qq}</if>
   </select>
