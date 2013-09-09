@@ -103,6 +103,8 @@
 .config2Icon {background-image:url(../images/main/config2.png) !important;}
 .cancel_48Icon {background-image:url(../images/main/cancel_48.png) !important;}
 .keyIcon {background-image:url(../images/main/key.png) !important;}
+.userIcon {background-image:url(../images/ext/user.gif) !important;}
+
 .lockIcon { background-image:url(../images/main/lock.png) !important; }
 .tbar_synchronizeIcon {background-image:url(../images/main/tbar_synchronize.png) !important;}
 .applicationIcon {background-image:url(../images/main/application.png) !important;}

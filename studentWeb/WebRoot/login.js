@@ -499,7 +499,6 @@ Ext.onReady(function() {
 			 {
     			text:'找回',scope:this,
 				handler:function(){
-					var th = this;
 					if (!findUpassPanel.form.isValid()) 
 						return;
 					findUpassPanel.form.submit({
@@ -509,7 +508,7 @@ Ext.onReady(function() {
 						waitMsg : '正在处理数据,请稍候...',
 						success : function(form, action) {
 							Ext.MessageBox.alert('提示', '找回密码成功，密码已经发回你注册邮箱', function() {
-								th.userWindow.hide();
+								findUpassWin.hide();
 							});
 						},
 						failure : function(form, action) {

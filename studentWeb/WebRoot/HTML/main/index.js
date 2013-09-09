@@ -204,8 +204,210 @@ Ext.onReady(function() {
 		});
 	}	
 		
+		//注册
+    var userEditForm = this.userEditForm = new Ext.form.FormPanel({
+    	labelAlign: 'right',
+    	buttonAlign:'center',
+    	width:350,
+    	height:240,
+		labelWidth: 60,
+		frame: true,
+    	items:[
+	       	info,
+    	    {xtype:'textfield',name:'uname',emptyText: '必填项',height:25,fieldLabel:'用户名称',allowBlank:false,blankText:'用户名称不能为空',anchor:'90%'},
+    	    {
+				xtype:'textfield',name:'ucode',height:25,emptyText: '必填项',fieldLabel:'登入名称',allowBlank:false,blankText:'登入名称不能为空',
+				anchor:'90%',validator: vlidateUcode,invalidText:'用户名已经注册'
+			},
+			{xtype:'numberfield',name:'stunumber',emptyText: '必填项',height:25,fieldLabel:'学生学号',allowBlank:false,blankText:'学生学号不能为空',anchor:'90%'},
+			{xtype:'numberfield',name:'age',height:25,fieldLabel:'用户年龄',anchor:'90%'},
+			{
+				layout:'form',
+				items:[
+    				new Ext.form.ComboBox({
+    					fieldLabel:'用户性别',
+						name: 'sex',
+						hiddenName: 'sex',
+						anchor:'90%',
+						height:25,
+						triggerAction: 'all', 
+						editable: false,
+						mode: 'local',
+						allowBlank : false,
+						valueField: 'value',
+						displayField: 'text',
+						value:'男',
+    					store : new Ext.data.SimpleStore({
+							fields: ['value', 'text'],
+							data: [['男', '男'],['女', '女']]		    					
+    					})
+    				})
+    			]
+			},
+			{
+				layout:'form',
+				items:[
+    				new Ext.form.ComboBox({
+    					fieldLabel:'主页样式',
+						name: 'themeName',
+						hiddenName: 'themeName',
+						anchor:'90%',
+						height:25,
+						triggerAction: 'all', 
+						editable: false,
+						mode: 'local',
+						allowBlank : false,
+						valueField: 'value',
+						displayField: 'text',
+						value:'default',
+    					store : new Ext.data.SimpleStore({
+							fields: ['value', 'text'],
+							data: [
+								['default', '默认'],
+								['ext-all-xtheme-black', '黑色'],
+								['ext-all-xtheme-blue', '银白'],
+								['ext-all-xtheme-brown', '浅红'],
+								['ext-all-xtheme-brown02', '粉黄'],
+								['ext-all-xtheme-green', '绿色'],
+								['ext-all-xtheme-purple', '紫色'],
+								['ext-all-xtheme-red03', '红色']
+							]		    					
+    					})
+    				})
+    			]
+			},
+			{xtype:'numberfield',name:'qq',height:25,emptyText: '必填项',fieldLabel:'用 户QQ',allowBlank:false,blankText:'用 户QQ不能为空',anchor:'90%'},
+			{xtype:'numberfield',name:'tel',height:25,fieldLabel:'移动电话',allowNegative:false,allowDecimals:false,anchor:'90%'},
+			{xtype:'textfield',name:'mail',emptyText: '必填项',height:26,fieldLabel:'邮箱地址',vtype:'email',allowBlank:false,blankText:'邮箱地址不能为空',anchor:'90%'},
+			{
+				layout:'form',
+				items:[
+   					new Ext.form.ComboBox({
+						fieldLabel: '所属院系',
+						name: 'parentDeptId',
+						hiddenName: 'parentDeptId',
+						anchor : '90%',
+						emptyText: '首先选择我...',
+						triggerAction: 'all', 
+						editable: false,
+						allowBlank:false,
+						blankText:'院系不能为空',
+						mode: 'local',
+						valueField: 'deptid',
+						displayField: 'deptname',
+						store:prentDeptStore,
+    					listeners : {
+    						beforeselect: function( combo , record , index  ){
+    							registerForm.getForm().findField('deptId').setValue();
+    							registerForm.getForm().findField('subDeptId').setValue();
+    							var deptid = record.data.deptid;
+								deptStore.load({params: {parentid: deptid, limit: 100}});
+							}
+						}
+					})
+    			]
+			},
+			{
+				layout:'form',
+				items:[
+   					new Ext.form.ComboBox({
+						fieldLabel: '所属专业',
+						name: 'deptId',
+						hiddenName: 'deptId',
+						anchor : '90%',
+						emptyText: '其次选择我...',
+						triggerAction: 'all', 
+						editable: false,
+						allowBlank:false,
+						blankText:'专业不能为空',
+						mode: 'local',
+						valueField: 'deptid',
+						displayField: 'deptname',
+						store:deptStore,
+    					listeners : {
+    						beforeselect: function( combo , record , index  ){
+    							var deptid = record.data.deptid;
+    							registerForm.getForm().findField('subDeptId').setValue();
+    							subdeptStore.load({params: {parentid: deptid, limit: 100}});
+							}
+						}
+					})
+    			]
+			},
+			{
+				layout:'form',
+				items:[
+   					new Ext.form.ComboBox({
+						fieldLabel: '所属年级',
+						name: 'subDeptId',
+						hiddenName: 'subDeptId',
+						emptyText: '最后选择我...',
+						anchor : '90%',
+						allowBlank:false,
+						blankText:'年级不能为空',
+						triggerAction: 'all', 
+						editable: false,
+						mode: 'local',
+						valueField: 'deptid',
+						displayField: 'deptname',
+						store:subdeptStore
+					})
+    			]
+			}
+    	],
+		buttons: [
+	         {
+    			text:'提交',scope:this,
+				handler:function(){
+					if(!registerForm.getForm().isValid())
+						return;
+					registerForm.getForm().doAction('submit', {
+						url:cxt+'/user/registerUser.do',
+						method:'post',
+						waitTitle:'提示',
+						waitMsg:'正在提交...',
+						success: function(form, action) {
+							if(action.result.success == true) {
+								Ext.MessageBox.alert('结果', '注册成功！');
+								registerForm.getForm().reset();
+								registerWin.hide();          
+							}
+						},
+						failure : function(form, action) {
+							Ext.Msg.alert('提示', "保存失败！", function() {
+								Ext.MessageBox.alert("提示信息","保存失败！");
+							});
+						}
+					})
+				}	    		
+    		 },
+	         {
+    			text:'重置',scope:this,
+				handler:function(){
+					registerForm.getForm().reset();
+				}	    		
+    		 },
+    		 {
+    			text:'取消',scope:this,
+    			handler:function(){
+    				registerWin.hide();
+				}
+    		 }
+		]
+    }); 
 		
-		
+     //主添加、修改-窗体
+    var userEditWin = this.userEditWin = new Ext.Window({
+    	title:'修改学生信息注册',
+    	width:700,
+    	height:480,
+    	layout:'border',
+    	closable:true,
+    	modal:true,
+		closeAction:'hide',
+    	items:[registerPanel,registerForm]
+    });
+    
 	/**
 	 * 二、首选项设置
 	 */
@@ -218,7 +420,15 @@ Ext.onReady(function() {
 				handler : function() {
 					updateUserInit();
 				}
-			}, {
+			}, 
+			{
+				text : '信息修改',
+				iconCls : 'userIcon',
+				handler : function() {
+					
+				}
+			},
+			{
 				text : '系统锁定',
 				iconCls : 'lockIcon',
 				handler : function() {
